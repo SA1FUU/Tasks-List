@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(25deg, rgb(96, 45, 96), rgb(144, 79, 205));
+    background-position: center;
+    background-size: cover;
+}
+
+.main-container {
+    margin-top: 3rem;
+    min-width: 30vw;
+    max-width: 40vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+ h1 {
+    color: snow;
+    text-shadow: 1px  2px rgb(37, 31, 31);
+}
+
+.input-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 1rem;
+    height: 5rem;
+    width: 95%;
+    position: relative;
+}
+
+.input-btn-container input {
+    border: 1px solid black;
+    outline: none;
+    padding: 0.7rem 3.5rem;
+    width: 100%;
+    transition: 0.3s ease;
+}
+
+.input-btn-container input:hover {
+    background-color: rgb(155, 127, 181);
+}
+
+.input-btn-container button {
+    position: absolute;
+    right: 1rem;
+    padding: 0.7rem 1.5rem;
+    border: 1px solid rgb(56, 51, 51);
+    cursor: pointer;
+    outline: none;
+    background-color: snow;
+    color: blueviolet;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.input-btn-container button:hover {
+    background-color: rgb(98, 58, 135);
+    color: snow;
+}
+
+.task-list-container {
+    width: 90%;
+    background-image: linear-gradient(45deg, rgb(99, 32, 99), rgb(132, 77, 184));
+    padding: 1rem;
+    box-shadow: 1px 1px 2px rgb(149, 66, 226);
+}
+
+.task-list-container li {
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Varela Round', sans-serif;
+    padding: 15px 5px;
+    margin: 5px;
+    width: 90%;
+    color: snow;
+    background-color: rgb(87, 47, 125);
+    box-shadow: 1px 1px 2px rgb(149, 66, 226);
+    position: relative;
+    cursor: pointer;
+}
+
+.task-list-container li.checked {
+    text-decoration: line-through;
+}
+
+.task-list-container li i {
+    position: absolute;
+    right: -35px;
+    top: 10px;
+    cursor: pointer;
+    margin-left: 1rem;
+    background-color: rgb(130, 16, 237);
+    padding: 8px;
+    border-radius: 50%;
+    transition: 0.3s ease;
+}
+
+.task-list-container li i:hover {
+    color: blueviolet;
+    background-color: #fff;
+}
+
+@media (max-width:720px) {
+    .main-container {
+        min-width: 100vw;
+    }
+}
+
+@media (max-width:920px) {
+    .main-container {
+        min-width: 70vw;
+    }
+}
+
+#dummy-text{
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Varela Round', sans-serif;
+    margin: 5px;
+    color: snow;
+
+}
