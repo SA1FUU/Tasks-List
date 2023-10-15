@@ -222,9 +222,6 @@ closeAlertBoxBtn.addEventListener("click", () => {
 sendNotiButton.addEventListener("click", () => {
     let minutes = parseFloat(document.querySelector("#minutes-delay").value)
     let exactDelay = minutes * 60 * 1000
-    console.log(exactDelay);
-
-  
 
     // Check if the input is a valid number
 
