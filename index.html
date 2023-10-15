@@ -24,12 +24,12 @@
 
     <div class="main-container">
         <div class="logo">
-            <img src="https://tse2.mm.bing.net/th?id=OIP.vIlwIS-k6g6JeAIZnsLqvgHaHa&pid=Api&P=0&h=180" >
+            <img src="https://tse2.mm.bing.net/th?id=OIP.vIlwIS-k6g6JeAIZnsLqvgHaHa&pid=Api&P=0&h=180">
             <h1>To-Do List </h1>
         </div>
 
         <div class="input-btn-container">
-            <input type="text" placeholder="Add Your Tasks Here" autofocus>
+            <input type="text" placeholder="Enter Tasks Here" autofocus>
             <button>Add</button>
         </div>
 
@@ -47,13 +47,19 @@
     </div>
 
     <div class="profile-container">
-        <input type="text" placeholder="Enter Username" id="name" title="Enter User Name">
+        <div class="name-div">
+            <label for="name">Enter Username :</label>
+            <input type="text" placeholder="username" id="name" title="Enter User Name">
+        </div>
 
-        <select name="Gender" id="gender">
-            <option value="none">Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-        </select>
+        <div class="gender-div">
+            <label for="gender">Select Gender :</label>
+            <select name="Gender" id="gender">
+                <option value="none">Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
 
         <i id="close-profile-btn" class="fa-solid fa-xmark"></i>
         <button id="save-btn">Save Profile <i class="fa-regular fa-floppy-disk"></i></button>
@@ -66,15 +72,15 @@
     <div class="noti-info-container">
         <h4>You Will be Notified After the Time Being Provied</h4>
         <label for="minutes-delay">Time ( Minutes )</label>
-        <input type="number" placeholder="Time in Minutes" id="minutes-delay" value="00" autofocus>
+        <input type="number" placeholder="Time in Minutes" id="minutes-delay" autofocus>
         <button id="send-noti-btn">Send Alert <i class="fa-regular fa-bell"></i></button>
         <i id="close-alertbox-btn" class="fa-solid fa-xmark"></i>
         <p id="error-in-noti"></p>
     </div>
 
-    <div class="alert-popup-box remove-alert">
+    <div class="alert-popup-box ">
         <i class="fa-solid fa-circle-info"></i>
-        <h3 class="alert-popup ">  </h3>
+        <h3 class="alert-popup "> </h3>
     </div>
     <script src="./script.js"></script>
 </body>
