@@ -6,21 +6,29 @@ let userInfo = document.getElementById('users-information')
 let alertPopupBox = document.querySelector('.alert-popup-box')
 let universalAlert = document.querySelector('.alert-popup')
 
+// Function to Remove Snack Notification
+
 function removeUniversalAlert() {
     setTimeout(() => {
         alertPopupBox.style.visibility = "hidden"
         universalAlert.innerText = ""
-    }, 2000);
+    }, 3000);
 }
+
+// Event Listener Function to Add Task
 
 addButton.addEventListener('click', (e) => [
     e.preventDefault(),
     addTask()
 ])
 
+// Validation for The Input Task 
+
 function addTask() {
     if (inputValue.value === "") {
-        alert("Enter a Task to Add")
+        universalAlert.innerHTML = universalAlert.innerHTML + "Please Enter a Task "
+        alertPopupBox.style.visibility = "visible"
+        removeUniversalAlert()
     }
     else {
         let li = document.createElement("li")
@@ -36,13 +44,16 @@ function addTask() {
         i.classList.add("fa-trash")
 
         li.appendChild(i)
+
+        universalAlert.innerHTML = universalAlert.innerHTML + "One Task Added"
+        alertPopupBox.style.visibility = "visible"
+        removeUniversalAlert()
     }
     saveData()
     inputValue.value = ""
-    universalAlert.innerHTML = universalAlert.innerHTML + "One Task Added"
-    alertPopupBox.style.visibility = "visible"
-    removeUniversalAlert()
 }
+
+// Adding Event Listener on Task List
 
 listContainer.addEventListener("click", (e) => {
     if (e.target.tagName === "I") {
@@ -61,6 +72,7 @@ listContainer.addEventListener("click", (e) => {
     }
 }, false)
 
+// Function to Save Data on Local Storage
 
 function saveData() {
     localStorage.setItem("data", listContainer.innerHTML)
@@ -71,12 +83,17 @@ function showData() {
 }
 showData()
 
+
+// Add Function to Trigger Add Button on Enter Click
+
 inputValue.addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
         event.preventDefault();
         addButton.click();
     }
 });
+
+//  For Profile Thing
 
 let profileButton = document.querySelector('#profile-button')
 let profileDiv = document.querySelector('.profile-container')
@@ -90,16 +107,16 @@ profileButton.addEventListener("click", () => {
 function addProfileDiv() {
     profileDiv.style.visibility = "visible"
     mainContainer.style.filter = "blur(5px)"
+    notiInfoContainer.style.visibility = "hidden"
 }
 
 let closeProfileButton = document.querySelector("#close-profile-btn")
 
 closeProfileButton.addEventListener("click", () => {
     profileDiv.style.visibility = "hidden",
-        mainContainer.style.filter = "blur(0)"
+    mainContainer.style.filter = "blur(0)"
     errorMessage.innerText = ""
 })
-
 
 
 submitButton.addEventListener("click", () => {
@@ -109,21 +126,18 @@ submitButton.addEventListener("click", () => {
 function createProfile() {
     if (document.getElementById('name').value === "" && document.getElementById('gender').value === "none") {
         errorMessage.innerText = "Fill the Required Details"
-        userInfo.innerText = ""
         saveProfileData()
     }
     else if (document.getElementById('name').value === "") {
         errorMessage.innerText = "Enter the Username"
-        userInfo.innerText = ""
         saveProfileData()
     }
     else if (document.getElementById('name').value.length > 10) {
         errorMessage.innerText = "Username Should be Less than 10 Chars"
-        userInfo.innerText = ""
         saveProfileData()
     }
     else if (document.getElementById('gender').value === "none") {
-        errorMessage.innerText = "Enter Your Gender"
+        errorMessage.innerText = "Select Your Gender"
         saveProfileData()
     }
     else if (document.getElementById('gender').value === "male") {
@@ -150,7 +164,7 @@ function createProfile() {
     }
     document.getElementById('name').value === ""
     document.getElementById('gender').value === "none"
-    saveProfileData() // New Line
+    saveProfileData()
 }
 
 
@@ -167,6 +181,8 @@ deletProfileButton.addEventListener("click", () => {
     alertPopupBox.style.visibility = "visible"
     removeUniversalAlert()
 })
+
+// Function to Save Profile Data
 
 function saveProfileData() {
     localStorage.setItem("user-data", userInfo.innerText)
@@ -192,6 +208,8 @@ mainAlertBtn.addEventListener("click", () => {
     notiInfoContainer.style.visibility = "visible"
     profileDiv.style.visibility = "hidden",
         mainContainer.style.filter = "blur(10px)"
+
+        requestPerms()
 })
 
 closeAlertBoxBtn.addEventListener("click", () => {
@@ -203,8 +221,10 @@ closeAlertBoxBtn.addEventListener("click", () => {
 
 sendNotiButton.addEventListener("click", () => {
     let minutes = parseFloat(document.querySelector("#minutes-delay").value)
-    const exactDelay = minutes * 60 * 1000
-    // console.log(exactDelay);
+    let exactDelay = minutes * 60 * 1000
+    console.log(exactDelay);
+
+  
 
     // Check if the input is a valid number
 
@@ -216,6 +236,7 @@ sendNotiButton.addEventListener("click", () => {
         setTimeout(() => {
             sendNotification()
         }, exactDelay);
+
         universalAlert.innerHTML = universalAlert.innerHTML + `You Will be Notified After ${minutes} Minutes`
         alertPopupBox.style.visibility = "visible"
         removeUniversalAlert()
@@ -226,23 +247,21 @@ sendNotiButton.addEventListener("click", () => {
 
 })
 
-function notifyMe() {
+// Requesting Permission
+      
+function requestPerms() {
     Notification.requestPermission()
-    if (Notification.permission === "granted") {
-        sendNotification()
-    }
-    else if (Notification.permission !== "denied") {
-        Notification.requestPermission(function (permission) {
-            if (permission = "granted") {
-                sendNotification()
-            }
-        })
-    }
 }
 
+// Notification Body if Access Granted
+
 function sendNotification() {
-    let notification = new Notification(`Hey, ${document.getElementById('name').value}`, {
-        icon: "https://tse1.mm.bing.net/th?id=OIP.tSp2HqX4psYo4zSvqnGHGgHaHa&pid=Api&P=0&h=180",
-        body: "You Have a Pending Task"
+        Notification.requestPermission().then(perm => {
+        if (perm === "granted") {
+            let notification = new Notification(`Hey, ${document.getElementById('name').value}`, {
+                body: "You Have a Pending Task",
+                icon: "https://tse1.mm.bing.net/th?id=OIP.tSp2HqX4psYo4zSvqnGHGgHaHa&pid=Api&P=0&h=180",
+            })
+        }
     })
 }
