@@ -47,10 +47,13 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 5rem;
     gap: 5px;
+    background-color: #1a1919;
     width: 100%;
+    margin: 1rem 0;
+    padding: 3px ;
     position: relative;
+    border-radius: 5px;
 }
 
 .input-btn-container input {
@@ -59,7 +62,9 @@ h1 {
     padding: 0.7rem 2rem;
     width: 100%;
     transition: 0.3s ease;
-    color: blueviolet;
+    color: #fff;
+    border-radius: 5px;
+    background: transparent;
 }
 
 .input-btn-container input::placeholder {
@@ -69,25 +74,31 @@ h1 {
 }
 
 .input-btn-container input:hover {
-    background-color: rgb(98, 58, 135);
-    color: snow;
+    background-color: rgb(197, 179, 179);
+    color: #000;
+}
+
+hr{
+    color: #fff;
+    height: 30px;
 }
 
 .input-btn-container button {
     padding: 0.7rem 1.5rem;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
     outline: none;
-    background-color: snow;
-    color: blueviolet;
+    background: transparent;
+    color: #fff;
     letter-spacing: 2px;
-    font-weight: 600;
+    font-weight: 500;
     transition: 0.3s ease;
 }
 
 .input-btn-container button:hover {
-    background-color: rgb(98, 58, 135);
-    color: snow;
+    background-color: rgb(197, 179, 179);
+    color: #000;
 }
 
 .task-list-container {
@@ -144,11 +155,12 @@ h1 {
     }
 
     .noti-info-container {
-        min-width: 80vw;
+        min-width: 90vw;
+        max-width: 90vw;
     }
 
     .profile-container {
-        min-width: 80vw;
+        min-width: 90vw;
     }
 }
 
@@ -190,7 +202,8 @@ h1 {
     align-items: center;
     justify-content: center;
     background: rgb(72, 31, 110);
-    opacity: 0.8;
+    opacity: 0.9;
+    padding: 0 2rem;
     box-shadow: 2px 2px 5px blueviolet;
     font-family: 'Poppins', sans-serif;
     font-family: 'Varela Round', sans-serif;
@@ -201,18 +214,17 @@ h1 {
     flex-direction: column;
     color: #fff;
     margin-bottom: 10px;
+    font-size: 14px;
+    width: 100%;
 }
 
-.profile-container .name-div,
-.gender-div {
-    font-size: 14px;
-}
 
 .profile-container .gender-div {
     display: flex;
     flex-direction: column;
     color: #fff;
-    width: 75%;
+    font-size: 14px;
+    width: 100%;
 }
 
 .profile-container .gender-div select option:hover {
@@ -250,7 +262,7 @@ h1 {
 #delete-btn {
     margin: 7px 0 0 3px;
     padding: 7px 5px;
-    width: 60%;
+    width: 70%;
     cursor: pointer;
     border: none;
     outline: none;
