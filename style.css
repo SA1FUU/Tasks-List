@@ -74,8 +74,7 @@ h1 {
 }
 
 .input-btn-container input:hover {
-    background-color: rgb(197, 179, 179);
-    color: #000;
+    background-image: linear-gradient(25deg, rgb(91, 44, 134), rgb(52, 123, 123));
 }
 
 hr{
@@ -97,8 +96,7 @@ hr{
 }
 
 .input-btn-container button:hover {
-    background-color: rgb(197, 179, 179);
-    color: #000;
+    background-image: linear-gradient(145deg, rgb(91, 44, 134), rgb(52, 123, 123));
 }
 
 .task-list-container {
@@ -155,7 +153,6 @@ hr{
     }
 
     .noti-info-container {
-        min-width: 90vw;
         max-width: 90vw;
     }
 
