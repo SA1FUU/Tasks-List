@@ -4,85 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google Fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Varela+Round&display=swap"
         rel="stylesheet">
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/4ee16d8c51.js" crossorigin="anonymous"></script>
-    <!-- Fav Icon -->
-    <link rel="icon" type="image/x-icon"
-        href="https://tse1.mm.bing.net/th?id=OIP.tSp2HqX4psYo4zSvqnGHGgHaHa&pid=Api&P=0&h=180">\
-    <!-- CSS File -->
+    <!-- Style Sheet -->
     <link rel="stylesheet" href="./style.css">
-    <title>To-Do Lists</title>
+    <title>Age Calculator</title>
 </head>
 
 <body>
-    <h2 id="users-information"> </h2>
 
-    <div class="main-container">
-        <div class="logo">
-            <img src="https://tse2.mm.bing.net/th?id=OIP.vIlwIS-k6g6JeAIZnsLqvgHaHa&pid=Api&P=0&h=180">
-            <h1>To-Do List </h1>
+    <div id="container">
+        <h2>Age Calculator</h2>
+        <label for="birthdate">Enter Your Birthdate</label>
+        <input type="date" id="birthdate" autofocus>
+        <button id="cal-age" onclick="clickAgeBtn()">Calculate Age </button>
+        <p id="date-error"></p>
+    </div>
+
+    <div class="user-container">
+        <h3>Enter Your Name</h3>
+        <input type="text" id="name" placeholder="Name Here" autofocus>
+        <div class="buttons">
+            <button id="get-age">Get Age</button>
+            <button class="user-cross">Close</button>
         </div>
-
-        <div class="input-btn-container">
-            <input type="text" placeholder="Enter Tasks Here" autofocus>
-            <hr>
-            <button>Add</button>
-        </div>
-
-        <ul class="task-list-container">
-
-            <!-- List will be added here dynamically -->
-
-        </ul>
-
+        <p id="error"></p>
     </div>
 
-    <div class="main-icons">
-        <i class="fa-solid fa-bell noti-btn" id="main-alert-btn"></i>
-        <i id="profile-button" class="fa-solid fa-user"></i>
+    <div class="age-info">
+        <h5>Hey, <b id="user"></b></h5>
+        <p>You Are <b id="result"></b></p>
+        <button id="age-close">Close</button>
     </div>
 
-    <div class="profile-container">
-        <div class="name-div">
-            <label for="name">Enter Username :</label>
-            <input type="text" placeholder="username" id="name" title="Enter User Name">
-        </div>
-
-        <div class="gender-div">
-            <label for="gender">Select Gender :</label>
-            <select name="Gender" id="gender">
-                <option value="none">Gender</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-            </select>
-        </div>
-
-        <i id="close-profile-btn" class="fa-solid fa-xmark"></i>
-        <button id="save-btn">Save Profile <i class="fa-regular fa-floppy-disk"></i></button>
-        <button id="delete-btn">Delete Profile <i class="fa-solid fa-trash"></i></button>
-        <p class="error-message"></p>
+    <div class="loader">
+        <span class="dot dot1"></span>
+        <span class="dot dot2"></span>
+        <span class="dot dot3"></span>
     </div>
 
-
-
-    <div class="noti-info-container">
-        <h4>You Will be Notified After the Time Being Provied</h4>
-        <label for="minutes-delay">Time ( Minutes )</label>
-        <input type="number" placeholder="Time in Minutes" id="minutes-delay" autofocus>
-        <button id="send-noti-btn">Send Alert <i class="fa-regular fa-bell"></i></button>
-        <i id="close-alertbox-btn" class="fa-solid fa-xmark"></i>
-        <p id="error-in-noti"></p>
-    </div>
-
-    <div class="alert-popup-box ">
-        <i class="fa-solid fa-circle-info"></i>
-        <h3 class="alert-popup "> </h3>
-    </div>
     <script src="./script.js"></script>
 </body>
 
