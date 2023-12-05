@@ -12,7 +12,7 @@ function removeUniversalAlert() {
     setTimeout(() => {
         alertPopupBox.style.visibility = "hidden"
         universalAlert.innerText = ""
-    }, 1800);
+    }, 1200);
 }
 
 // Event Listener Function to Add Task
@@ -32,7 +32,7 @@ function addTask() {
     }
     else {
         let li = document.createElement("li")
-        li.innerText = `- ${inputValue.value}`
+        li.innerText = `○ ${inputValue.value}`
         listContainer.appendChild(li)
 
         let div = document.createElement('div')
@@ -45,7 +45,7 @@ function addTask() {
 
         li.appendChild(i)
 
-        universalAlert.innerHTML = universalAlert.innerHTML + " One Task Added  "
+        universalAlert.innerHTML = universalAlert.innerHTML + " Task Added  "
         alertPopupBox.style.visibility = "visible"
         removeUniversalAlert()
     }
@@ -59,14 +59,14 @@ listContainer.addEventListener("click", (e) => {
     if (e.target.tagName === "I") {
         e.target.parentElement.remove()
         saveData()
-        universalAlert.innerHTML = universalAlert.innerHTML + " One Task Deleted "
+        universalAlert.innerHTML = universalAlert.innerHTML + " Task Deleted "
         alertPopupBox.style.visibility = "visible"
         removeUniversalAlert()
     }
     if (e.target.tagName === "LI") {
         e.target.classList.toggle("checked")
         saveData()
-        universalAlert.innerHTML = universalAlert.innerHTML + " One Task Completed "
+        universalAlert.innerHTML = universalAlert.innerHTML + " Task Completed "
         alertPopupBox.style.visibility = "visible"
         removeUniversalAlert()
     }
@@ -144,7 +144,6 @@ function createProfile() {
         userInfo.innerText = `Hey, Mr. ${document.getElementById('name').value}`
         profileDiv.style.visibility = "hidden",
             mainContainer.style.filter = "blur(0)"
-        userInfo.style.backgroundImage = "linear-gradient(25deg, blueviolet, rgb(49, 186, 186))"
         errorMessage.innerText = ""
         saveProfileData()
         universalAlert.innerHTML = universalAlert.innerHTML + " Profile Updated Successfully "
@@ -155,7 +154,6 @@ function createProfile() {
         userInfo.innerText = `Hey, Ms. ${document.getElementById('name').value}`
         profileDiv.style.visibility = "hidden",
             mainContainer.style.filter = "blur(0)"
-        userInfo.style.backgroundImage = "linear-gradient(25deg, blueviolet, rgb(49, 186, 186))"
         errorMessage.innerText = ""
         saveProfileData()
         universalAlert.innerHTML = universalAlert.innerHTML + "Profile Updated Successfully"
@@ -270,5 +268,6 @@ function sendNotification() {
                 icon: "https://tse1.mm.bing.net/th?id=OIP.tSp2HqX4psYo4zSvqnGHGgHaHa&pid=Api&P=0&h=180",
             })
         }
+        saveProfileData()
     })
 }
