@@ -193,11 +193,11 @@ document.querySelector(".gender-div").addEventListener("keypress", function (eve
 // Function to Save Profile Data
 
 function saveProfileData() {
-    localStorage.setItem("user-data", userInfo.innerText)
+    localStorage.setItem("task-list", userInfo.innerText)
 }
 
 function showProfileData() {
-    userInfo.innerText = localStorage.getItem("user-data")
+    userInfo.innerText = localStorage.getItem("task-list")
 }
 showProfileData()
 
